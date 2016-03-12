@@ -53,6 +53,20 @@ function parseJSON(JSONObj) {
         });
     }
 
+    //set media blocks
+    for(var i = 0;i<JSONObj.media_blocks.length;i++)
+    {
+        jQuery("#media_block").append(
+            "<div class='col-xs-2 col-sm-2 col-md-2 col-lg-2 chunk_div media_div'>"+
+            "<input type=\"file\" class=\"fileUpload\" onchange='UpLoadFile(event)'>" +
+            "<button class=\"remove_chunk_buttons\" onclick=\"test()\">Remove</button>" +
+            "<img class=\"icon\" src='"+JSONObj.media_blocks[i].image+"' alt=\"No file chosen\"/>" +
+            "<div class=\"entry\">描述: <input type=\"text\" class=\"entry_input media_description\" value='"+JSONObj.media_blocks[i].description+"'/></div>" +
+            "<div class=\"entry\">链接: <input type=\"text\" class=\"entry_input media_link\" value='"+JSONObj.media_blocks[i].link+"'/></div>" +
+            "</div>"
+        );
+    }
+
     //set table
     var entrieshtml = "";
     entrieshtml += "<table class='table'>";
@@ -399,6 +413,25 @@ function updateAll() {
     var sortby = document.getElementById("sort_order_select");
     var selectedvalue = sortby.options[sortby.selectedIndex].value;
     newJsonObj.sort_by = selectedvalue;
+
+    //media blocks
+    var block_array = new Array();
+    var media_blocks = jQuery(".media_div");
+    for(var i = 0;i<media_blocks.length;i++)
+    {
+        var img = jQuery(".icon",media_blocks[i]);
+        var description = jQuery(".media_description",media_blocks[i]);
+        var link = jQuery(".media_link",media_blocks[i]);
+        var oneblock={
+            "image":img.attr("src"),
+            "description":description.val(),
+            "link":link.val()
+        };
+        block_array.push(oneblock);
+    }
+    newJsonObj.media_blocks = block_array;
+
+
     newJSON = JSON.stringify(newJsonObj);
     jQuery.ajax({
         type: "POST",
@@ -473,6 +506,19 @@ jQuery(document).ready(function () {
             });
         }
 
+    });
+
+    jQuery("#add_media").click(function(){
+        var media_block = "";
+        media_block +=
+                "<div class='col-xs-2 col-sm-2 col-md-2 col-lg-2 chunk_div media_div'>"+
+                "<input type=\"file\" class=\"fileUpload\" onchange='UpLoadFile(event)'>" +
+                "<button class=\"remove_chunk_buttons\" onclick=\"test()\">Remove</button>" +
+                "<img class=\"icon\" src=\"\" alt=\"No file chosen\"/>" +
+                "<div class=\"entry\">描述: <input type=\"text\" class=\"entry_input media_description\"/></div>" +
+                "<div class=\"entry\">链接: <input type=\"text\" class=\"entry_input media_link\"/></div>" +
+                "</div>";
+        jQuery("#media_block").append(media_block);
     });
 
     function input_confirm() {

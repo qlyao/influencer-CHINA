@@ -8,7 +8,7 @@ while (file_exists($target_file)) {
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
 {
   //echo "http://".$_SERVER['HTTP_HOST'].substr($_SERVER['REQUEST_URI'],0,strrpos($_SERVER['REQUEST_URI'],"/",-1))."/".$target_file;
-  echo "/influencer/".$target_file;
+  echo "/influencer-CHINA/".$target_file;
   //echo $target_file;
 }
 else 

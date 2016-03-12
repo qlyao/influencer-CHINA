@@ -308,7 +308,8 @@
     </div>
 
     <div class="row" style="text-align:center;">
-        <div id="ins_post_div"></div >
+        <!--<div id="ins_post_div"></div >-->
+        <div id="media_div"></div>
     </div>
 
     <div>
@@ -488,13 +489,13 @@
     jQuery(document).ready(function(){
         console.log("document ready");
 
-        getInstagram();
+        //getInstagram();
 
         jQuery.ajax({
           type:"GET",
 //            to change when on servers
-//          url:"getinfluencerinfo.php",
-          url:"../influencer/getinfluencerinfo.php",
+          url:"getinfluencerinfo.php",
+//          url:"../influencer/getinfluencerinfo.php",
           success:function(result)
           {
             influencersJSONObj = JSON.parse(result);
@@ -544,6 +545,18 @@
 
     function parseJSON(influencersJSONObj)
     {
+        //media blocks
+        var media_div_html = "";
+        for(var i = 0;i<influencersJSONObj.media_blocks.length;i++)
+        {
+            media_div_html +=
+                    "<div class='col-xs-6 col-sm-6 col-md-3 col-lg-3'>"+
+                    "<img class=\"icon\" src='"+influencersJSONObj.media_blocks[i].image+"' style='height:200px;width:200px;' alt=\"No file chosen\"/><br>" +
+                    "<font>"+influencersJSONObj.media_blocks[i].description+"</font><br>" +
+                    "<font>"+influencersJSONObj.media_blocks[i].link+"</font>" +
+                    "</div>";
+        }
+
 
         var moreinfluencer_html = "";
         var featured_stories_html = "";
@@ -615,6 +628,7 @@
             }
         }
 
+        jQuery("#media_div").html(media_div_html);
         jQuery("#featured_stories").html(featured_stories_html);
         jQuery("#moreinfluencers-container").html(moreinfluencer_html);
     }

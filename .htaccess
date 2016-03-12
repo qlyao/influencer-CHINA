@@ -1,8 +1,0 @@
-AuthType Basic
-AuthName "Welcome, please enter your credentials:"
-AuthBasicProvider file
-AuthUserFile "/etc/apache2/auth_users"
-Require user etadmin
-#AuthGroupFile "/usr/local/apache/passwd/groups"
-#Require group GroupName
-
