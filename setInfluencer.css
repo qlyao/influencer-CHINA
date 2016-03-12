@@ -1,0 +1,140 @@
+body{
+    margin: 3%;
+}
+
+h3{
+    text-align: center;
+    margin: 15px;
+}
+
+.table>tbody>tr>th{
+    vertical-align: middle;
+}
+
+.name{
+    align: center;
+}
+
+.entry{
+    margin: 8px 0;
+}
+
+.entry_input{
+    width: 100%;
+}
+
+.entry_textarea{
+    width: 100%;
+}
+
+.fileUpload{
+    width: 80px;
+    margin: 10px 0;
+}
+
+.button_right_wrapper{
+    text-align: right;
+    margin-top: 5px;
+}
+
+.btn{
+    margin: 1%;
+}
+
+#tag_pool{
+    padding: 2%;
+    width: 100%;
+    background-color: whitesmoke;
+    border: 1px lightgrey solid;
+}
+
+.icon{
+    width: 100px;
+    height: 100px;
+}
+
+#icon_img_uploader{
+    width: 14%;
+    margin: auto;
+}
+
+#create_button{
+    float: left;
+}
+
+/*Influencer Modal*/
+
+/*header*/
+#icon_img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+#name{
+    margin-top: 5px;
+    font-size: x-large;
+    text-align: center;
+}
+
+#influencer_wrapper{
+    /*display: inline-block;*/
+    text-align: center;
+    /*float: left;*/
+    margin-bottom: 10px;
+}
+
+#name_wrapper{
+    text-align: center;
+}
+#description{
+    width: 100%;
+    height: 100px;
+}
+
+#description_wrapper{
+    /*padding-left: 20px;*/
+    /*display: inline-block;*/
+    /*width: 80%;*/
+    height: 100%;
+    /*float: left;*/
+    margin-bottom: 10px;
+}
+
+.description_wrappers{
+    width: 100%;
+}
+
+/*chunk_div*/
+
+.remove_chunk_buttons{
+    float: right;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.chunk_div{
+    background-color: whitesmoke;
+    padding: 0 10px 10px 10px;
+    border: 1px lightgrey solid;
+    margin-top: 10px;
+}
+
+.description_textAreas{
+    width: 100%;
+}
+
+.entry_picture{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 100px;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+
+/*File Reader
+#holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
+#holder.hover { border: 10px dashed #333; }*/

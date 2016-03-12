@@ -1,0 +1,33 @@
+h3{
+    text-align: center;
+    margin: 15px;
+}
+
+body{
+    margin: 3%;
+}
+
+.btn{
+    margin: 1%;
+}
+
+/*modal*/
+
+table{
+    margin: 0 30px;
+}
+
+tr{
+    height: 50px;
+}
+
+input{
+    width: 275px;
+}
+
+select{
+    width: 275px;
+}
+
+label {float: left; width: 6em; text-align: right;}
+input, textarea {text-align: left;}

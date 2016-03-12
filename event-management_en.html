@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="event-management.css">
+    <title>Event Management</title>
+</head>
+<body>
+
+<h3>Event Management</h3>
+
+<div class="container">
+
+    <button id="create_button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Create New Event
+    </button>
+    <br>
+    <br>
+
+    <table class="table" id="myTable">
+        <thead>
+        <tr>
+            <th id="name_head" onclick="sortTable(event)">Name</th>
+            <th id="time_begin_head" onclick="sortTable(event)">Time Begin</th>
+            <th id="time_end_head" onclick="sortTable(event)">Time End</th>
+            <th id="brief_head" onclick="sortTable(event)">Brief Introduction</th>
+            <th>Operations</th>
+            <th>Event ID</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <nav>
+        <ul class="pager">
+            <li><button id="previous_button" class="btn btn-secondary" onclick="previousPage()">Previous</button></li>
+            <li><button id="next_button" class="btn btn-secondary" onclick="nextPage()">Next</button></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <!--Modal Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Event Details</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <!--status-->
+                    <div class="modal-row">Status:&nbsp;<span id="modal_status">On</span>
+                        <button class="btn btn-link" id="status_control_button">disable</button>
+                    </div>
+
+                    <!--name-->
+                    <div class="modal-row">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="modal_name_input" type="text"></div>
+
+                    <!--time_begin-->
+                    <div class="modal-row">Begin Time:&nbsp;&nbsp;<input id="modal_begin_time" type="datetime-local" name="begin-time"></div>
+
+                    <!--time_end-->
+                    <div class="modal-row">End Time:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="modal_end_time" type="datetime-local" name="end-time"></div>
+
+                    <!--brief intro-->
+                    <div class="modal-row">
+                        <h5>Brief Introduction</h5>
+                        <textarea id="modal_intro" style="width: 100%"></textarea>
+                    </div>
+
+                    <!--tag pool-->
+                    <div class="modal-row">
+                        <h5>Use the following hashtags:</h5>
+                        <div id="tag_pool">
+                            <button id="add_tag_button" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+
+                    <!--big image-->
+                    <div class="modal-row">
+                        <h5>Big Images</h5>
+                        <div id="big_img_div">
+                            <!--<div class="chunk_div">-->
+                                <!--<input type="file" class="fileUpload" onchange='UpLoadFile(event)'>-->
+                                <!--<img class="entry_picture" src="" alt="No file chosen"/>-->
+                                <!--Main Title: <input type="text" class="entry_input" value="">-->
+                                <!--Subtitle: <input type="text" class="entry_input" value="">-->
+                                <!--Link: <input type="text" class="entry_input" value="">-->
+                            <!--</div>-->
+                        </div>
+                        <div class="button_right_wrapper">
+                            <button id="big_img_add_btn" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+
+                    <!--middle image-->
+                    <div class="modal-row">
+                        <h5>Middle Images</h5>
+                        <div id="middle_img_div">
+                            <!--<div class="chunk_div">-->
+                                <!--<input type="file" class="fileUpload" onchange='UpLoadFile(event)'>-->
+                                <!--<img class="entry_picture" src="" alt="No file chosen"/>-->
+                                <!--Main Title: <input type="text" class="entry_input" value="">-->
+                                <!--Subtitle: <input type="text" class="entry_input" value="">-->
+                                <!--Link: <input type="text" class="entry_input" value="">-->
+                            <!--</div>-->
+                        </div>
+                        <div class="button_right_wrapper">
+                            <button id="middle_img_add_btn" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+
+                    <!--picks-->
+                    <div class="modal-row">
+                        <h5>Picks Code</h5>
+                        <div id="picks_div">
+                        <!--Category ID: <input type="number" id="pick_category_id" value="" min="0">-->
+                        <!--<div class="chunk_div">-->
+                            <!--Code Generated: <input type="text" class="entry_input" value="">-->
+                        <!--</div>-->
+                        </div>
+                        <div class="button_right_wrapper">
+                            <button id="picks_add_btn" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save_button">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="event-management.js"></script>
+</body>
+</html>

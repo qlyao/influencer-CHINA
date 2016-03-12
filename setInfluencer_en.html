@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="setInfluencer.css">
+</head>
+    <title></title>
+</head>
+<body>
+<h3>About Influencers</h3>
+<div>
+    <h5>The posted from the following influencers are sorted by:</h5>
+    <select name="sort_order" id="sort_order_select" class="form-control">
+        <option value="time">time</option>
+        <option value="like">like</option>
+    </select>
+</div>
+
+<div>
+    <h5>Use the following hashtags:</h5>
+    <div id="tag_pool">
+        <button id="add_tag_button" class="btn btn-primary">Add</button>
+    </div>
+</div>
+
+<div id="entries">
+
+</div>
+  
+
+<div class="button_right_wrapper">
+    <button id="create_button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Create New Influencer</button>
+    <button id="update_button" class="btn btn-primary" onclick="updateAll()">update</button>
+    <button id="reset_button" class="btn btn-default">reset</button>
+</div>
+
+<div class="container" id="test_parent">
+    <!-- Trigger the modal with a button -->
+    <!--<button type="button" id="toggle_button" class="btn test" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Influencer Details</h4>
+                </div>
+                <div class="modal-body">
+                        <div id="name_wrapper"><input id="name" type="text"></div>
+                        <div id="influencer_wrapper">
+                        <img id="icon_img"/>
+                        <input id="icon_img_uploader" type="file" class="fileUpload" onchange='UpLoadFile(event)'>
+                        </div>
+
+                        <div id="description_wrapper">
+                            <h5>Description</h5>
+                            <textarea id="description">description</textarea>
+                        </div>
+
+                    <div>
+                        <h5>Background Image:</h5>
+                        <div class="chunk_div">
+                          <input type="file" class="fileUpload" onchange='UpLoadFile(event)'>
+                          <img id="background_img" class="entry_picture" src="" alt="No file chosen"/>
+                        </div>
+                    </div>
+
+
+                    <!--Blog-->
+                    <div class="page-header">
+                        <h5>Blog</h5>
+                    </div>
+                    <div id="blog_div">    
+                    </div>
+
+                    <div class="button_right_wrapper">
+                        <button id="blog_add_button" class="btn btn-primary">Add</button>
+                    </div>
+
+
+                    <!--Style-->
+                    <div class="page-header">
+                      <h5>Style</h5>
+                    </div>
+                    <div id="style_div">
+                    </div>
+
+                    <div class="button_right_wrapper">
+                        <button id="style_add_button" class="btn btn-primary">Add</button>
+                    </div>
+
+
+                    <div class="modal-row">
+                        <h5>Picks Code</h5>
+                        <div id="picks_div">
+                            <!--Category ID: <input type="number" id="pick_category_id" value="" min="0">-->
+                            <!--<div class="chunk_div">-->
+                            <!--Code Generated: <input type="text" class="entry_input" value="">-->
+                            <!--</div>-->
+                        </div>
+                        <div class="button_right_wrapper">
+                            <button id="picks_add_btn" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="save_button">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="setInfluencer.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+
+</html>

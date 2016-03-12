@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="entries">
+    </div>
+    <img id="showimg"></img>
+    <input type="file" class="fileUpload">
+    <div id="errorinfo"></div>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script>
+      var oldJSON;
+      var oldJsonObj;
+      var newJSON;
+      var newJsonObj;
+      function parseJSON(JSONObj)
+      {
+        var entrieshtml = "";
+        entrieshtml += "<table>";
+        //header of table
+        entrieshtml += "<tr>";
+        entrieshtml += "<th>Profile Image</th>";
+        entrieshtml += "<th>Name</th>";
+        entrieshtml += "<th>Operations</th>";
+        entrieshtml += "</tr>";
+        for(var i = 0;i<JSONObj.influencers.length;i++)
+        {
+          entrieshtml += "<tr>";
+          entrieshtml += "<th><img src='"+JSONObj.influencers[i].profile_icon+"'></img></th>";
+          entrieshtml += "<th>"+JSONObj.influencers[i].name+"</th>";
+          entrieshtml += "<th><button id='editbutton"+JSONObj.influencers[i].id+"' onclick='viewandedit(event)'>view&edit</button><br><button id='deletebutton"+JSONObj.influencers[i].id+"' onclick='deleteentry(event)'>delete</button></th>";
+          entrieshtml += "</tr>";
+        }
+        entrieshtml += "</table>";
+        jQuery("#entries").html(entrieshtml);
+      }
+      
+      //view and edit an influencer entry
+      function viewandedit(event)
+      {
+        alert(jQuery(event.target).attr("id"));
+        var id_str = jQuery(event.target).attr("id").substring(jQuery(event.target).attr("id").indexOf("editbutton")+10);//get the influencer's id
+        var id = parseInt(id_str);
+        var i;
+        for(i = 0;i<newJsonObj.influencers.length;i++)
+        {
+          if(newJsonObj.influencers[i].id == id)
+            break;
+        }
+        var currentInfluencer = newJsonObj.influencers[i];
+        showInfluencerInPopup(currentInfluencer);
+      }
+      
+      //show the influencer in popup window
+      function showInfluencerInPopup(currentInfluencer)
+      {
+        /*
+        jQuery("#icon_img").attr("src",currentInfluencer.profile_icon);
+        jQuery("#name").html(currentInfluencer.name);
+        jQuery("#description").val(currentInfluencer.description);
+        jQuery("#background_img").attr("src",currentInfluencer.big_img);
+        */
+      }
+      
+      function convertPageToJSONObj()
+      {
+        
+        
+        
+      }
+      
+      //delete an influencer entry
+      function deleteentry(event)
+      {
+        alert(jQuery(event.target).attr("id"));
+        if(confirm("Are you sure to delete?") == false)
+          return;
+        var id_str = jQuery(event.target).attr("id").substring(jQuery(event.target).attr("id").indexOf("deletebutton")+12);//get the influencer's id
+        var id = parseInt(id_str);
+        //delete the influencer with this id
+        var i;
+        for(i = 0;i<newJsonObj.influencers.length;i++)
+        {
+          if(newJsonObj.influencers[i].id == id)
+            break;
+        }
+        newJsonObj.influencers.splice(i,1);
+        parseJSON(newJsonObj);
+        alert(JSON.stringify(newJsonObj));
+      }
+      
+      jQuery(document).ready(function(){
+        jQuery.ajax({
+          type:"GET",
+          url:"getinfluencerinfo.php",
+          success:function(result)
+          {
+            oldJSON = result;
+            oldJsonObj = JSON.parse(result);
+            newJSON = result;
+            newJsonObj = JSON.parse(result);
+            alert(result);
+            alert(oldJsonObj.influencers.length);
+            parseJSON(oldJsonObj);
+          },
+          error:function()
+          {
+            alert("error!");
+          }
+        });
+        
+        jQuery(".fileUpload").change(function(event){
+          var fd = new FormData();
+          fd.append("fileToUpload", this.files[0]);
+          jQuery.ajax({
+            type:"POST",
+            url:"uploadfile.php",
+            processData: false,
+            contentType: false,
+            data:fd,
+            success:function(result)
+            {
+              
+              jQuery("#errorinfo").html(result);
+              alert(result);
+              var target = event.target;
+              var parent = target.parentElement;
+              var imgtag = parent.getElementsByTagName("img")[2];
+              jQuery(imgtag).attr("src",result);
+              //jQuery("#showimg").attr("src",result);
+            },
+            error:function()
+            {
+              alert("error!");
+            }
+          });
+        });
+        
+      });
+    </script>
+  </body>
+</html>

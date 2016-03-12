@@ -1,0 +1,458 @@
+<html>
+<head>
+    <title>influencer_detail </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        h1{text-align: center;}
+        h2{text-align: center;}
+        h3{text-align: center;}
+        .subheader_block-span1{
+            border-top:1.5px solid #a89f9f;
+            width:35%;
+            display:inline-block;
+            margin-bottom:6px;
+            text-align:left;
+        }
+        .subheader_block-span2{
+            display:inline-block;
+            margin-left:2%;
+            margin-right:2%;
+            letter-spacing:2px;
+            width:24%;
+            text-align: center;
+        }
+        .subheader_block-span3{
+            border-top:1.5px solid #a89f9f;
+            width:35%;
+            display:inline-block;
+            margin-bottom:6px;
+            text-align:right;
+        }
+        .coverfull{
+            max-width:100%;
+            display:block;
+            margin:auto;
+            margin-top:5px;
+            margin-bottom:5px;
+        }
+        .semitrans-box-above{
+            position: absolute;
+            top: 7%;
+            width: 35%;
+            left:20%;
+            color: white;
+            background: transparent;
+            padding: 10px;
+            vertical-align: middle;
+        }
+        .semitrans-subbox{
+            vertical-align: middle;
+            text-align: center;
+        }
+        .influencer-name1{
+            font-size:30px;
+            letter-spacing: 10px;
+        }
+        .influencer-name2{
+            font-size: 50px;
+            letter-spacing: 10px;
+        }
+        .image-auto-resizing{
+            max-width:100%;
+            max-height:100%;
+        }
+
+        .img-circle{
+            width:165px;
+            height: 165px;
+            overflow: hidden;
+            position: relative;
+
+        }
+        .influencer-img{
+            width: 100%;
+            text-align: center;
+        }
+
+        .top-bot-padding{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .top-bot-padding2{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .influencer-blog{
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 40px;
+            color: #7c6f6f;
+        }
+        .carousel-control.left, .carousel-control.right {
+            background-image: none
+        }
+        .influence-button{
+            letter-spacing: 5px;
+            text-align:center;
+            background:#4e4051;
+            color: #ffffff;
+            margin-top: 3px;
+            margin-bottom: 3px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .buttom-border{
+            margin-bottom: 40px;
+            margin-top: 60px;
+            width: 22%;
+            /*            width:250px;*/
+            /*26%;*/
+            text-align:center;
+            /*                height: 47px;  */
+            height: auto;
+            border: #4e4051;
+            border-style: solid;
+            border-width: 1px;
+            position:inherit;
+            top:10px;
+            /* left:37%; */
+            left:39%;
+        }
+        .buttom-border2{
+            margin-bottom: 20px;
+            margin-top: 10px;
+            width: 20%;
+            text-align:center;
+            height: auto;
+            border: #4e4051;
+            border-style: solid;
+            border-width: 1px;
+            position:inherit;
+            top:10px;
+            left:40%;
+            letter-spacing: 2px;
+        }
+        .carousel-arrow{
+            width:26px;
+            height:auto;
+            margin-top: 150px;
+        }
+        @media only screen and (max-width: 1000px) {
+            .subheader_block-span1{width:20%;}
+            .subheader_block-span2{width:40%;}
+            .subheader_block-span3{width:20%;}
+            .influencer-blog{line-height: 15px}
+            .influence-button{letter-spacing:2px;}
+        }
+        @media only screen and (max-width: 800px) {
+            .img-circle{width:130px;
+                height: 130px;
+                overflow: hidden;
+                position: relative;}
+            .buttom-border{
+                width:40%;
+                left:30%;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .img-circle{width:80px;
+                height: 80px;
+                overflow: hidden;
+                position: relative;}
+        }
+    </style>
+</head>
+<body>
+
+<img id="influencerimage"  src="{{media url="wysiwyg/influencer2/influencer_detail_header1.png"}}" alt="" />
+<?php //need to add shadow on the header image ?>
+<div class="semitrans-box-above">
+    <div class="semitrans-subbox">
+        <span class="influencer-name1"> Influencer One</span>
+        <span class="influencer-name2"> CURATION</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="grid-container" style="text-align:center;">
+        <div style="margin-top:20px; margin-bottom:20px; color:#a89f9f">
+            <span class="subheader_block-span1"></span>
+            <span class="h4 subheader_block-span2">INFLUENCER BLOG</span>
+            <span class="subheader_block-span3"></span>
+        </div>
+    </div>
+
+
+    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner " role="listbox" style="height:400px;">
+            <div class="item active" style="text-align:center;width:60%;left:20%;">
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer-blog-bra1.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                </div>
+                <div class="col-md-12" style="padding-top:30px;">
+                    <span class="influencer-blog">Katie Arnold is a 20-something Social Media maven by day and style blogger by night. She has lived all over the globe in cities including Paris, New York, and San Francisco, though she currently bounces between Orange County and LA. Katie believes anything is possible and lives by the mantra &#8220;rules are meant to be broken.&#8221;</span>
+                </div>
+            </div>
+
+            <div class="item" style="text-align:center;width:60%;left:20%;">
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer-blog-image2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                </div>
+                <div class="col-md-12" style="padding-top:30px;">
+                    <span class="influencer-blog">Katie Arnold is a 20-something Social Media maven by day and style blogger by night. She has lived all over the globe in cities including Paris, New York, and San Francisco, though she currently bounces between Orange County and LA. Katie believes anything is possible and lives by the mantra &#8220;rules are meant to be broken.&#8221;</span>
+                </div>
+            </div>
+
+            <div class="item" style="text-align:center;width:60%;left:20%;">
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer-blog-image3.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                </div>
+                <div class="col-md-12" style="padding-top:30px;">
+                    <span class="influencer-blog">Katie Arnold is a 20-something Social Media maven by day and style blogger by night. She has lived all over the globe in cities including Paris, New York, and San Francisco, though she currently bounces between Orange County and LA. Katie believes anything is possible and lives by the mantra &#8220;rules are meant to be broken.&#8221;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+              <span class="glyphicon" aria-hidden="true"  >
+                <img class="carousel-arrow" src="{{media url="/wysiwyg/influencer2/arrowleft.png"}}" alt=""/>
+              </span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+              <span class="glyphicon" aria-hidden="true">
+                <img class="carousel-arrow" src="{{media url="/wysiwyg/influencer2/arrowright.png"}}" alt=""/>
+              </span>
+        </a>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="grid-container" style="text-align:center;">
+        <div style="margin-top:40px; margin-bottom:20px; color:#a89f9f">
+            <span class="subheader_block-span1"></span>
+            <span class="h4 subheader_block-span2">SHOP INFLUENCER STYLE</span>
+            <span class="subheader_block-span3"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 top-bot-padding2">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_style1.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+            </div>
+            <div class="col-md-6 top-bot-padding2">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_style2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px;">
+            <div class="col-md-4 top-bot-padding2">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_style3.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+            </div>
+            <div class="col-md-4 top-bot-padding2">
+                <img  class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+            </div>
+            <div class="col-md-4 top-bot-padding2">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_style5.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="grid-container" style="text-align:center;">
+        <div style="margin-top:40px; margin-bottom:20px; color:#a89f9f">
+            <span class="subheader_block-span1"></span>
+            <span class="h4 subheader_block-span2">INFLUENCER PICKS</span>
+            <span class="subheader_block-span3"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks3.png"}}" alt=""/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks1.png"}}" alt=""/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks3.png"}}" alt=""/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks1.png"}}" alt=""/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img class="image-auto-resizing" src="{{media url="wysiwyg/influencer2/influencer_picks2.png"}}" alt="" pagespeed_url_hash="4266083714" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                <div class="col-md-12" style="padding-top:20px;"><span>Chloe Perfect Shape</span></div>
+                <div class="col-md-12"><span>$110</span></div>
+                <div class="col-md-12">
+                    <img class="image-auto-resizing" style="padding-bottom:20px;padding-right:20px;" src="{{media url="wysiwyg/influencer2/add-to-bag-icon.png"}}" alt="" />
+                    <img class="image-auto-resizing" style="padding-bottom:20px;" src="{{media url="wysiwyg/influencer2/add-to-wishlist-icon.png"}}" alt=""/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;">
+                <div class="buttom-border2" style="text-align:center;vertical-align:center;">
+                    <span >SHARE WITH FRIEND</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="grid-container" style="text-align:center;">
+        <div style="margin-top:40px; margin-bottom:20px; color:#a89f9f">
+            <span class="subheader_block-span1"></span>
+            <span class="h4 subheader_block-span2">MEET MORE INFLUENCERS</span>
+            <span class="subheader_block-span3"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-2 col-xs-3 top-bot-padding">
+                <div class="influencer-img">
+                    <img class="influencer-icon img-circle" src="{{media url="wysiwyg/influencer2/influencer_style4.png"}}" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align:center;">
+                <div class="buttom-border" style="text-align:center;vertical-align:center;">
+                    <button class="influence-button" type="button">SEE MORE INFLUENCERS</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    //var window_width=jQuery(window).width();
+    var image=document.getElementById("influencerimage");
+    //var left=(image.width-window_width)/2;
+    // image.style.marginLeft=left.toString()+"px";
+    image.style.marginTop="-10px";
+    // image.style.width="2300px !important";
+</script>
+
+</body>
+</html>
