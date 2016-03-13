@@ -552,17 +552,46 @@
         if (jQuery(window).width() < 992) {
             for (var i = 0; i < influencersJSONObj.influencers.length; i++) {
                 if (influencersJSONObj.influencers[i].show_curation == 1) {
-                    featured_stories_html += "<div class=\"col-md-12\">" +"<img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_small + "\"}}\" alt=\"\" \/>" + "<div class=\"small-influencer-name\">"+influencersJSONObj.influencers[i].name+"</div>"+"<div class=\"small-enter-store-outter\"><div class=\"small-enter-store\">"+"ENTER STORE"+"</div></div>"+"<\/div>";
+                    featured_stories_html += "<div class=\"col-md-12\">" +
+                            "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                            "<img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_small + "\"}}\" alt=\"\" \/>" +
+                            "</a>" +
+                            "<div class=\"small-influencer-name\">"+influencersJSONObj.influencers[i].name+"</div>"+
+                            "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                            "<div class=\"small-enter-store-outter\"><div class=\"small-enter-store\">"+"ENTER STORE"+"</div></div>" +
+                            "</a>"+
+                            "<\/div>";
                 }
             }
         } else {
             for (var i = 0; i < influencersJSONObj.influencers.length; i++) {
                 if (influencersJSONObj.influencers[i].show_curation == 1) {
                     if (i % 2 == 0) {
-                        featured_stories_html += "<div class=\"col-md-12\"><img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_big + "\"}}\" alt=\"\" \/><div class=\"semitrans-box-above-left\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " + influencersJSONObj.influencers[i].name + "<\/span><\/div><div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " + influencersJSONObj.influencers[i].description + "<\/span><\/div><\/div><div class=\"semitrans-enter-store enter-store-left\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\"><span >ENTER STORE<\/span><\/div><\/div><\/div>";
+                        featured_stories_html += "<div class=\"col-md-12\">" +
+                                "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_big + "\"}}\" alt=\"\" \/>" +
+                                "</a>" +
+                                "<div class=\"semitrans-box-above-left\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " +
+                                influencersJSONObj.influencers[i].name + "<\/span><\/div><div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " +
+                                influencersJSONObj.influencers[i].description +
+                                "<\/span><\/div><\/div><div class=\"semitrans-enter-store enter-store-left\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\">" +
+                                "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<span >ENTER STORE<\/span>" +
+                                "</a>" +
+                                "<\/div><\/div><\/div>";
                     }
                     else {
-                        featured_stories_html += "<div class=\"col-md-12\"><img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_big + "\"}}\" alt=\"\" \/><div class=\"semitrans-box-above-right\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " + influencersJSONObj.influencers[i].name + "<\/span><\/div><div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " + influencersJSONObj.influencers[i].description + "<\/span><\/div><\/div><div class=\"semitrans-enter-store enter-store-right\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\"><span >ENTER STORE<\/span><\/div><\/div><\/div>";
+                        featured_stories_html += "<div class=\"col-md-12\">" +
+                                "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<img class=\"coverfull\" src=\"" + influencersJSONObj.influencers[i].curation_image_big + "\"}}\" alt=\"\" \/>" +
+                                "</a>" +
+                                "<div class=\"semitrans-box-above-right\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " + influencersJSONObj.influencers[i].name + "<\/span><\/div>" +
+                                "<div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " + influencersJSONObj.influencers[i].description + "<\/span><\/div><\/div>" +
+                                "<div class=\"semitrans-enter-store enter-store-right\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\">" +
+                                "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<span >ENTER STORE<\/span>" +
+                                "</a>" +
+                                "<\/div><\/div><\/div>";
                     }
 
                 }
