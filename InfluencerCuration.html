@@ -574,11 +574,14 @@
                                 "<div class=\"semitrans-box-above-left\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " +
                                 influencersJSONObj.influencers[i].name + "<\/span><\/div><div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " +
                                 influencersJSONObj.influencers[i].description +
-                                "<\/span><\/div><\/div><div class=\"semitrans-enter-store enter-store-left\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\">" +
+                                "<\/span><\/div><\/div>" +
+                                "<div class=\"semitrans-enter-store enter-store-left\" style=\"vertical-aligh:middle;\">" +
                                 "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<div class=\"semitrans-enter-store-inbox\">" +
                                 "<span >ENTER STORE<\/span>" +
+                                "<\/div>" +
                                 "</a>" +
-                                "<\/div><\/div><\/div>";
+                                "<\/div><\/div>";
                     }
                     else {
                         featured_stories_html += "<div class=\"col-md-12\">" +
@@ -587,11 +590,13 @@
                                 "</a>" +
                                 "<div class=\"semitrans-box-above-right\"><div class=\"semitrans-subbox\"><span class=\"influencer-name\"> " + influencersJSONObj.influencers[i].name + "<\/span><\/div>" +
                                 "<div class=\"semitrans-subbox\"><span class=\"influencer-story\"> " + influencersJSONObj.influencers[i].description + "<\/span><\/div><\/div>" +
-                                "<div class=\"semitrans-enter-store enter-store-right\" style=\"vertical-aligh:middle;\"><div class=\"semitrans-enter-store-inbox\">" +
+                                "<div class=\"semitrans-enter-store enter-store-right\" style=\"vertical-aligh:middle;\">" +
                                 "<a href=\"influencer-detail?id=" + influencersJSONObj.influencers[i].id + "\">" +
+                                "<div class=\"semitrans-enter-store-inbox\">" +
                                 "<span >ENTER STORE<\/span>" +
+                                "<\/div>" +
                                 "</a>" +
-                                "<\/div><\/div><\/div>";
+                                "<\/div><\/div>";
                     }
 
                 }
