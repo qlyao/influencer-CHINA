@@ -54,6 +54,7 @@ function parseJSON(JSONObj) {
     }
 
     //set media blocks
+    jQuery("#media_block").html("");
     for(var i = 0;i<JSONObj.media_blocks.length;i++)
     {
         jQuery("#media_block").append(

@@ -231,7 +231,45 @@
         @media only screen and (max-width: 321px) {
             .semitrans-enter-store{height:25%;}
         }
+
+        /*for media_div*/
+
+        #media_div{
+            padding: 0 10px;
+        }
+        .post{
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 30px;
+        }
+        .inner-post{
+            border-radius: 5px;
+            border: 1px solid #a89f9f;
+            padding: 8px;
+        }
+        .icon{
+            margin-top: 30px;
+            height: auto;
+            width: 320px;
+            max-width: 100%;
+        }
+        .media-caption{
+            font-size: 14px;
+            line-height: 19px;
+            color: #000;
+            display: block;
+            margin: 8px 0;
+            padding: 0 4px;
+            word-wrap: break-word;
+        }
+        @media only screen and (max-width: 640px) {
+            .media-caption {
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
     </style>
+
     <!--to comment when on server-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
@@ -549,11 +587,15 @@
         var media_div_html = "";
         for(var i = 0;i<influencersJSONObj.media_blocks.length;i++)
         {
+            if (i%4==0) media_div_html += "<div class='row'>";
             media_div_html +=
-                    "<div class='col-xs-6 col-sm-6 col-md-3 col-lg-3'>"+
-                    "<a href='"+influencersJSONObj.media_blocks[i].link+"'><img class=\"icon\" src='"+influencersJSONObj.media_blocks[i].image+"' style='height:200px;width:200px;' alt=\"No file chosen\"/></a><br>" +
-                    "<font>"+influencersJSONObj.media_blocks[i].description+"</font><br>" +
+                    "<div class='col-xs-6 col-sm-6 col-md-3 col-lg-3 post'>"+
+                            "<div class='inner-post'>" +
+                    "<a href='"+influencersJSONObj.media_blocks[i].link+"'><img class=\"icon\" src='"+influencersJSONObj.media_blocks[i].image+"' alt=\"No file chosen\"/></a>" +
+                    "<div class='media-caption'>"+influencersJSONObj.media_blocks[i].description+"</div>" +
+                            "</div>" +
                     "</div>";
+            if (i%4==3) media_div_html += "</div>";
         }
 
 

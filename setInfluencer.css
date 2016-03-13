@@ -135,6 +135,20 @@ h3{
     vertical-align: middle;
 }
 
+/*for media_div*/
+#media_block{
+    margin: 0;
+}
+.media_div{
+    margin: 8px;
+}
+/*.icon{*/
+    /*margin-top: 30px;*/
+    /*height: auto;*/
+    /*width: 320px;*/
+    /*max-width: 100%;*/
+/*}*/
+
 /*File Reader
 #holder { border: 10px dashed #ccc; width: 300px; height: 300px; margin: 20px auto;}
 #holder.hover { border: 10px dashed #333; }*/
